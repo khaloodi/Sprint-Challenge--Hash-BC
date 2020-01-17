@@ -12,6 +12,15 @@ def get_indices_of_item_weights(weights, length, limit):
     """
     YOUR CODE HERE
     """
+    for weight, index in enumerate(weights):
+        hash_table_insert(ht, index, weight)
+
+    for i in range(len(weights)):
+        check_weight = limit - weights[i]
+        complementary_weight = hash_table_retrieve(ht, check_weight)
+
+        if complementary_weight:
+            return (complementary_weight, i)
 
     return None
 
